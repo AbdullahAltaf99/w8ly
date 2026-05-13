@@ -34,7 +34,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  w8ly: ^0.0.1
+  w8ly: ^0.0.2
 ```
 
 Run:
