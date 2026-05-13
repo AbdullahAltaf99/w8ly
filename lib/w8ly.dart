@@ -38,23 +38,42 @@ class _W8lyWeightPickerState extends State<W8lyWeightPicker> {
   late int selectedWeight;
   late ScrollController _scrollController;
 
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   selectedWeight = widget.initialWeight;
+
+  //   // Calculate initial offset
+  //   double initialOffset = (selectedWeight - widget.minWeight) * 10.0;
+
+  //   _scrollController = ScrollController(initialScrollOffset: initialOffset);
+  //   _scrollController.addListener(_handleScroll);
+  // }
+
   @override
   void initState() {
     super.initState();
+
     selectedWeight = widget.initialWeight;
+    _scrollController = ScrollController();
 
-    // Calculate initial offset
-    double initialOffset = (selectedWeight - widget.minWeight) * 10.0;
-
-    _scrollController = ScrollController(initialScrollOffset: initialOffset);
     _scrollController.addListener(_handleScroll);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final initialOffset = (selectedWeight - widget.minWeight) * 10.0;
+
+      if (_scrollController.hasClients) {
+        _scrollController.jumpTo(initialOffset);
+      }
+    });
   }
 
   void _handleScroll() {
+    if (!_scrollController.hasClients) return;
+
     int newWeight =
         widget.minWeight + (_scrollController.offset / 10.0).round();
 
-    // Clamp within range
     newWeight = newWeight.clamp(widget.minWeight, widget.maxWeight);
 
     if (newWeight != selectedWeight) {
@@ -62,6 +81,18 @@ class _W8lyWeightPickerState extends State<W8lyWeightPicker> {
       widget.onChanged(newWeight);
     }
   }
+  // void _handleScroll() {
+  //   int newWeight =
+  //       widget.minWeight + (_scrollController.offset / 10.0).round();
+
+  //   // Clamp within range
+  //   newWeight = newWeight.clamp(widget.minWeight, widget.maxWeight);
+
+  //   if (newWeight != selectedWeight) {
+  //     setState(() => selectedWeight = newWeight);
+  //     widget.onChanged(newWeight);
+  //   }
+  // }
 
   @override
   void dispose() {
@@ -79,8 +110,7 @@ class _W8lyWeightPickerState extends State<W8lyWeightPicker> {
     final gapBetweenTicksAndIndicator = (screenHeight * 0.015).clamp(8.0, 16.0);
     final tickWidth = 10.0;
     return SizedBox(
-      height:
-          tickMaxHeight +
+      height: tickMaxHeight +
           gapBetweenTicksAndIndicator +
           indicatorHeight +
           offsetFromTicks +
@@ -112,8 +142,7 @@ class _W8lyWeightPickerState extends State<W8lyWeightPicker> {
                     if (isLabel)
                       Text(
                         '$weight',
-                        style:
-                            widget.labelTextStyle ??
+                        style: widget.labelTextStyle ??
                             TextStyle(
                               fontSize: screenHeight * 0.015,
                               color: widget.inactiveColor,
@@ -122,13 +151,11 @@ class _W8lyWeightPickerState extends State<W8lyWeightPicker> {
                         softWrap: false,
                         overflow: TextOverflow.visible,
                       ),
-
                     Container(
                       width: 2,
                       height: isMajor ? tickMaxHeight : tickMinHeight,
-                      color: isMajor
-                          ? widget.activeColor
-                          : widget.inactiveColor,
+                      color:
+                          isMajor ? widget.activeColor : widget.inactiveColor,
                     ),
                   ],
                 ),
@@ -144,8 +171,7 @@ class _W8lyWeightPickerState extends State<W8lyWeightPicker> {
               children: [
                 Text(
                   '$selectedWeight ${widget.unit}',
-                  style:
-                      widget.selectedTextStyle ??
+                  style: widget.selectedTextStyle ??
                       TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
