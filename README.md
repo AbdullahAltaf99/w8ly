@@ -1,7 +1,10 @@
-# W8ly
+# W8ly - Flutter Weight Picker
 
-A beautiful and customizable horizontal weight picker for Flutter apps.
+A beautiful, smooth, and highly customizable horizontal weight picker for Flutter apps.
 
+`W8ly` helps developers easily add an interactive weight selector UI for fitness apps, BMI calculators, health trackers, gym apps, onboarding flows, and medical applications.
+
+---
 ## ✨ Features
 
 - Smooth horizontal scrolling
