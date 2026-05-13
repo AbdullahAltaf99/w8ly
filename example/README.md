@@ -1,16 +1,21 @@
-# example
+# W8ly
 
-A new Flutter project.
+A beautiful and customizable horizontal weight picker for Flutter.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Smooth horizontal scrolling
+- Custom indicator
+- Custom colors
+- Responsive UI
+- Lightweight
 
-A few resources to get you started if this is your first Flutter project:
+## Preview
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img src="https://raw.githubusercontent.com/AbdullahAltaf99/w8ly/main/screenshots/demo.png" width="300"/>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+```yaml
+dependencies:
+  w8ly: latest_version

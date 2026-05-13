@@ -30,15 +30,11 @@ class DemoScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 30),
-
-            // 🎯 Title
             const Text(
               "W8ly Weight Picker",
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
-
             const SizedBox(height: 8),
-
             const Text(
               "Smooth, customizable & production-ready Flutter widget",
               textAlign: TextAlign.center,
