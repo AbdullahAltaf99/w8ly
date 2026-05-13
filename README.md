@@ -15,13 +15,13 @@ A beautiful and customizable horizontal weight picker for Flutter apps.
 
 ## 📸 Preview
 
-<img src="https://raw.githubusercontent.com/AbdullahAltaf99/w8ly/main/screenshots/demo.png" width="300"/>
+<img src="https://github.com/AbdullahAltaf99/w8ly/blob/main/assets/demoImage.jpeg" width="300"/>
 
 ---
 
 ## 🎥 Demo Video
 
-[Watch Demo Video](YOUR_VIDEO_LINK_HERE)
+[Watch Demo Video](https://github.com/AbdullahAltaf99/w8ly/blob/main/assets/demoVideo.mp4)
 
 ---
 
