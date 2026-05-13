@@ -109,6 +109,9 @@ Feel free to open issues or submit pull requests on GitHub.
 - Pub.dev: https://pub.dev/packages/w8ly
 
 ---
+🔍 Keywords
+
+Flutter weight picker, Flutter ruler picker, Flutter health UI, Flutter BMI app, Flutter fitness widget, horizontal picker Flutter, weight selector Flutter, custom weight picker, Flutter UI package, Flutter health package.
 
 ## 📄 License
 
